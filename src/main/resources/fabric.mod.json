@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "viavanillaplus",
+	"version": "${version}",
+	"name": "ViaVanillaPlus",
+	"description": "Handles protocol changes in Vanilla+ mods, intended as an addon to ViaFabricPlus",
+	"authors": [
+		"Earthcomputer"
+	],
+	"contact": {
+		"homepage": "https://github.com/ViaVersionAddons/ViaVanillaPlus",
+		"sources": "https://github.com/ViaVersionAddons/ViaVanillaPlus"
+	},
+	"license": "MIT",
+	"icon": "assets/viavanillaplus/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.earthcomputer.viavanillaplus.ViaVanillaPlus"
+		],
+		"client": [
+			"net.earthcomputer.viavanillaplus.ViaVanillaPlusClient"
+		]
+	},
+	"mixins": [
+		"viavanillaplus.mixins.json",
+		{
+			"config": "viavanillaplus.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"minecraft": "~1.20.2",
+		"java": ">=17"
+	}
+}

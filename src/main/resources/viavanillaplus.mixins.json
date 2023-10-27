@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "net.earthcomputer.viavanillaplus.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "carpet.Protocol1_20_2To1_20Mixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
