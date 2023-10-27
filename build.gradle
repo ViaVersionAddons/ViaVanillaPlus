@@ -1,6 +1,7 @@
 plugins {
 	id 'fabric-loom' version '1.4-SNAPSHOT'
 	id 'maven-publish'
+	id 'com.modrinth.minotaur' version '2.+'
 }
 
 version = project.mod_version
@@ -110,6 +111,21 @@ java {
 jar {
 	from("LICENSE") {
 		rename { "${it}_${project.base.archivesName.get()}"}
+	}
+}
+
+modrinth {
+	if (System.getenv('MODRINTH_TOKEN') == null && project.hasProperty('modrinthKey')) {
+		token = project.modrinthKey
+	}
+	projectId = 'viavanillaplus'
+	uploadFile = remapJar
+	gameVersions = [project.minecraft_version]
+	loaders = ['fabric', 'quilt']
+	dependencies {
+		optional.project 'viafabricplus'
+		optional.project 'viafabric'
+		optional.project 'carpet'
 	}
 }
 
