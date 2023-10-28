@@ -126,6 +126,7 @@ modrinth {
 		optional.project 'viafabricplus'
 		optional.project 'viafabric'
 		optional.project 'carpet'
+		optional.project 'syncmatica'
 	}
 }
 
