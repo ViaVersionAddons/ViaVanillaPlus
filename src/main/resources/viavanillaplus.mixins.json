@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "carpet.Protocol1_20_2To1_20Mixin",
+    "carpet.Protocol1_20_3To1_20_2Mixin",
     "syncmatica.Protocol1_20_2To1_20Mixin"
   ],
   "injectors": {
