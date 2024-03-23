@@ -63,7 +63,6 @@ public class Protocol1_20_3To1_20_2Mixin extends AbstractProtocol<ClientboundPac
                     } else {
                         tickRateState.isFrozen = isTickFrozen;
                     }
-                    System.out.println("Sending " + tickRate + ", " + isTickFrozen);
                     PacketWrapper tickStatePacket = wrapper.create(ClientboundPackets1_20_3.TICKING_STATE);
                     tickStatePacket.write(Type.FLOAT, tickRate);
                     tickStatePacket.write(Type.BOOLEAN, isTickFrozen);
