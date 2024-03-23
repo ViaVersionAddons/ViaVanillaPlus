@@ -4,7 +4,7 @@ plugins {
 	id 'com.modrinth.minotaur' version '2.+'
 }
 
-version = project.mod_version
+version = "${project.mod_version}+mc${project.minecraft_version}"
 group = project.maven_group
 
 base {
@@ -88,9 +88,10 @@ dependencies {
 
 processResources {
 	inputs.property "version", project.version
+	inputs.property "mcversions", project.fmj_mcversions
 
 	filesMatching("fabric.mod.json") {
-		expand "version": project.version
+		expand "version": project.version, "mcversions": project.fmj_mcversions
 	}
 }
 
@@ -120,7 +121,7 @@ modrinth {
 	}
 	projectId = 'viavanillaplus'
 	uploadFile = remapJar
-	gameVersions = [project.minecraft_version]
+	gameVersions.set(project.modrinth_mcversions.split(',').toList())
 	loaders = ['fabric', 'quilt']
 	dependencies {
 		optional.project 'viafabricplus'
